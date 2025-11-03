@@ -5,12 +5,13 @@ from tqdm import tqdm
 from configs.train_config import config
 from data.preprocessors import preprocess_with_nlm_gpu
 from data.data_loader import get_training_data
-from models.saved_models import load_models
+from models.vgg_models import load_models
 from models.trades_loss import trades_loss_for_vgg
 
 def trades_training_loop():
     train_gen, val_gen = get_training_data(config["dataset_path"], config["batch_size"])
-    model = load_models(compile=False)
+    saved_models_path = config["saved_models_path"] + "BrainTumorMRI_VGG16_26102025_0850_model.keras"
+    model = load_models(saved_models_path, compile=False)
     optimizer = tf.keras.optimizers.SGD(learning_rate=1e-3, momentum=0.9)
     preprocess_fn = lambda x: preprocess_with_nlm_gpu(
         x,

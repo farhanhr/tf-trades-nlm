@@ -3,6 +3,7 @@ import os
 
 def get_training_data(dataset_path, batch_size=16):
     train_dir = os.path.join(dataset_path, 'train')
+    print("Loading training data from:", train_dir)
     train_datagen = ImageDataGenerator(
         rotation_range=10,
         width_shift_range=0.05,

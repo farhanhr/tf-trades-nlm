@@ -1,3 +1,7 @@
 .env
 data/datasets
 models/saved_models
+train/__pycache__
+models/__pycache__
+data/__pycache__
+configa/__pycache__
