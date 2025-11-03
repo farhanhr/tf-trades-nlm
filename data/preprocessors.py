@@ -1,6 +1,5 @@
 import tensorflow as tf
 from typing import Callable, Optional
-from tensorflow.keras.applications.vgg16 import preprocess_input as vgg_preprocess
 
 EPS = 1e-12
 
