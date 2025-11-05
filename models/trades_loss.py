@@ -29,7 +29,7 @@ def trades_loss_for_vgg(
     - x_natural_raw: float32 tensor, values in [0,255]
     - step_size, epsilon: pixel units (e.g., 2.0, 8.0)
     - preprocess_fn: function that maps raw pixels -> model input (e.g. vgg16.preprocess_input)
-                     Must be applied INSIDE gradient tapes when computing logits from x_adv.
+        Must be applied INSIDE gradient tapes when computing logits from x_adv.
     Returns scalar loss tensor; also applies optimizer update to model weights.
     """
 
