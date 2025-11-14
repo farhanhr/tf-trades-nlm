@@ -2,7 +2,9 @@ tensorflow<2.11
 tensorflow-addons==0.20.0
 cudatoolkit=11.2 
 cudnn=8.1.0
-numpy<2
+numpy==1.26.4
 tqdm>=4.66.2
 matplotlib>=3.8.2
 scikit-learn>=1.5.0
+adversarial-robustness-toolbox
+cleverhans==4.0.0
