@@ -1,4 +1,5 @@
 .env
 data/datasets
 models/saved_models
+inference/result
 **/__pycache__/
