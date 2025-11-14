@@ -19,11 +19,11 @@ model.compile(optimizer=Adam(learning_rate=1e-3),
             metrics=['accuracy'])
 
 train_gen, val_gen = get_training_data(
-    config["dataset_path"], 
-    config["batch_size"], 
-    validation_split=0.2, 
+    config["dataset_path"],
+    config["batch_size"],
+    validation_split=0.2,
     preprocessing_function=vgg_preprocess
-    )
+)
 
 labels = train_gen.classes
 classes = np.unique(labels)
@@ -40,6 +40,7 @@ print("Bobot Kelas yang Dihitung (di mana nilai lebih tinggi = kelas minoritas):
 print(class_weights_dict)
 
 saved_model_dir = config["saved_models_path"]
+os.makedirs(saved_model_dir, exist_ok=True)
 early_stop = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
 saved_model_path = os.path.join(saved_model_dir, 'BrainTumorMRI_VGG16_03112025_2358_model.h5')
 
@@ -65,7 +66,6 @@ trained_model = model.fit(
     class_weight=class_weights_dict,
     callbacks=[early_stop, checkpoint, lr_scheduler]
 )
-
 
 
 plt.figure(figsize=(12, 4))
